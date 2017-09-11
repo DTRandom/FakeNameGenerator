@@ -4,7 +4,8 @@ from ..objects.mysql import disconnectmysql, connectmysql
 # from ..objects.user import r
 
 
-def process_ridentity_callback(chat, query, bot, u, btns):
+def process_ridentity_callback(chat, query, bot, u, btns, data):
+    u.state('ridentity')
     cursor, cnx = connectmysql()
     current = int(u.getRedis('current'))
     if current == 150:
@@ -12,9 +13,10 @@ def process_ridentity_callback(chat, query, bot, u, btns):
     sqlquery = """
             SELECT gender, title, givenname, surname,
             streetaddress, city, state, statefull, zipcode,
-            country, countryfull, birthday FROM fakenames
+            country, countryfull, birthday FROM fakenames{lang}
             WHERE number = {current}
-            """.format(current=current)
+            """.format(current=current,
+                       lang=data)
     cursor.execute(sqlquery)
     current += 1
     u.setRedis('current', current)
