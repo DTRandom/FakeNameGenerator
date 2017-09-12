@@ -17,7 +17,7 @@ class Error:
 
     def sendError(self, errorType):
         """Send the error to the Log Channel."""
-        with open("./data/language/lang" +
+        with open("./data/error/error" +
                   r.get('lang').decode('utf-8') +
                   ".json") as j:
             jsonlang = json.load(j)

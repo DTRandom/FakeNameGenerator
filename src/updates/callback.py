@@ -1,15 +1,27 @@
 import config
 from ..objects.error import Error
+from ..objects.language import callMess
 from ..objects.mysql import disconnectmysql, connectmysql
 # from ..objects.user import r
 
 
 def process_ridentity_callback(chat, query, bot, u, btns, data):
+    """
+    Get a new fake identity.
+
+    Identities are given based on selected language.
+    """
     u.state('ridentity')
     cursor, cnx = connectmysql()
     current = int(u.getRedis('current'))
-    if current == 150:
-        return
+    maxquery = """
+               SELECT MAX(number) FROM fakenames{lang}
+               """.format(lang=data)
+    cursor.execute(maxquery)
+    for row in cursor.fetchall():
+        maxvalue = row[0]
+    if current == maxvalue:
+        current = 1
     sqlquery = """
             SELECT gender, title, givenname, surname,
             streetaddress, city, state, statefull, zipcode,
@@ -20,7 +32,7 @@ def process_ridentity_callback(chat, query, bot, u, btns, data):
     cursor.execute(sqlquery)
     current += 1
     u.setRedis('current', current)
-    btns[0].callback("🔀 Random Identity", 'ridentity')
+    btns[0].callback("🔀 Random Identity", 'ridentity', u.getRedis('lang'))
     for row in cursor.fetchall():
         text = "<b>Gender</b>: {gender}\n<b>Title</b>: {title}\n" + \
                 "<b>Name</b>: {name}\n<b>Surname</b>: {surname}\n" + \
@@ -36,3 +48,7 @@ def process_ridentity_callback(chat, query, bot, u, btns, data):
                            zip=row[8], country=row[9],
                            countryfull=row[10], birthday=row[11])
     chat.send(text, attach=btns)
+
+
+def process_setlang_callback(chat, query, bot, u, btns, data):
+    u.setLang('data')

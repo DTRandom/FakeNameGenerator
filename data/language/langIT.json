@@ -1,9 +1,21 @@
-{"errors":[
-  {"error":"norights",
-  "text":"<b>BOT</b>: <a href=\"t.me/sfujudarbot\">[DTRandom] Fake Name Generator</a>\n<b>User ID</b>: {userid}\n<b>Username</b>: <a href=\"tg://user?id={userid}\">{userfname}</a>\n<b>Chat Type</b>: {chattype}\n<b>Tipo di Errore:</b> Non ha accesso al bot\n\n{time}"},
-  {"error":"noprivate",
-  "text":"<b>BOT</b>: <a href=\"t.me/sfujudarbot\">[DTRandom] Fake Name Generator</a>\n<b>User ID</b>: {userid}\n<b>Chat Type</b>: {chattype}\n<b>Chat ID</b>: {chatid}\n<b>Tipo di Errore:</b> Bot avviato in un gruppo\n\n{time}"}
-  ]}
 {"status":[
-  {"state":""}
+  {"state":"ridentity",
+    "text":"<b>Genere</b>: {gender}\n<b>Titolo</b>: {title}\n<b>Nome</b>: {name}\n<b>Cognome</b>: {surname}\n<b>Strada</b>: {street}\n<b>Città</b>: {city}\n<b>Stato</b>: {state}, {statefull}\n<b>CAP</b>: {zip}\n<b>Nazione</b>: {country}, {countryfull}\n<b>Compleanno</b>: {birthday}", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🔀 Falsa Identità"}
+          ]}
+        ]}
+      ]},
+  {"state":"home",
+    "text":"Clicca il bottone qui sotto per ottenere una <b>Falsa Identità</b>.", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🔀 Falsa Identità"}, {"text":"A caso CB"}
+          ]},
+        {"column":[
+          {"text":"A caso URL"}
+          ]}
+        ]}
+      ]}
   ]}

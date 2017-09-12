@@ -100,7 +100,7 @@ class User:
 
     def isAdmin(self, new_value=None):
         """
-        Get if current user is admin or set it admin
+        Get if current user is admin or set it admin.
         """
         if not new_value:
             return r.hget(self.rhash, 'admin')
@@ -109,11 +109,17 @@ class User:
         return True
 
     def isMaster(self, new_master=None):
-        """
-        Get if current user is master or set it master
-        """
+        """Get if current user is master or set it master."""
         if not new_master:
             return r.hget(self.rhash, 'master')
 
         r.hset(self.rhash, 'master', new_master)
+        return True
+
+    def setLang(self, new_lang=None):
+        """Get the current lang or set it new."""
+        if not new_lang:
+            return r.hget(self.rhash, 'lang')
+
+        r.hset(self.rhash, 'lang')
         return True

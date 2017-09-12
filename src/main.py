@@ -36,3 +36,11 @@ def ridentity_callback(chat, query, data):
         callback.process_ridentity_callback(chat, query, bot, u, btns, data)
     print('--- ' + str(time.time() - start_time) + ' ---' + " ridentity - " +
           str(query.sender.id))
+
+@bot.callback('setlang')
+def setlang_callback(chat, query, data):
+    start_time = time.time()
+    u = User(query.sender)
+    if chat.type == 'private' and chat.id == config.ADMIN:
+        btns = botogram.Buttons()
+        callback.process_setlang_callback(chat, query, bot, u, btns, data)
