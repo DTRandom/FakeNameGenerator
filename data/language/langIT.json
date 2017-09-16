@@ -11,10 +11,7 @@
     "text":"Clicca il bottone qui sotto per ottenere una <b>Falsa Identità</b>.", "buttons":[
       {"row":[
         {"column":[
-          {"text":"🔀 Falsa Identità"}, {"text":"A caso CB"}
-          ]},
-        {"column":[
-          {"text":"A caso URL"}
+          {"text":"🔀 Falsa Identità"}
           ]}
         ]}
       ]}

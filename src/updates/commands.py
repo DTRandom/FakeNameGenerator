@@ -15,6 +15,5 @@ def process_start_command(chat, message, u, bot, btns):
     cm = callMess(u.setLang().decode('utf-8'), u.state().decode('utf-8'))
     text = cm.messageText()
     cbtext = cm.callbackText()
-    btns = cm.callbackData(btns, cbtext)
-    print(btns)
+    btns = cm.callbackData(btns, cbtext, u.getRedis('lang').decode('utf-8'))
     chat.send(text, syntax='HTML', attach=btns)
