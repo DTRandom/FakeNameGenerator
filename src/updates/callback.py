@@ -6,7 +6,7 @@ from ..objects.mysql import disconnectmysql, connectmysql
 # from ..objects.user import r
 
 
-def process_ridentity_callback(chat, query, bot, u, btns, data):
+def process_ridentity_callback(chat, query, bot, u, btns):
     """
     Get a new fake identity.
 
@@ -19,7 +19,7 @@ def process_ridentity_callback(chat, query, bot, u, btns, data):
     current = int(u.getRedis('current'))
     maxquery = """
                SELECT MAX(number) FROM fakenames{lang}
-               """.format(lang=data)
+               """.format(lang=u.setLang().decode('utf-8'))
     cursor.execute(maxquery)
     for row in cursor.fetchall():
         maxvalue = row[0]
@@ -31,7 +31,7 @@ def process_ridentity_callback(chat, query, bot, u, btns, data):
             country, countryfull, birthday FROM fakenames{lang}
             WHERE number = {current}
             """.format(current=current,
-                       lang=data)
+                       lang=u.setLang().decode('utf-8'))
     cursor.execute(sqlquery)
     current += 1
     u.setRedis('current', current)
@@ -48,7 +48,7 @@ def process_ridentity_callback(chat, query, bot, u, btns, data):
     query.message.edit(text, syntax='HTML', attach=btns)
 
 
-def process_setlang_callback(chat, query, bot, u, btns, data):
+def process_lang_callback(chat, query, bot, u, btns, data):
     """Set the BOT language when started for the first time."""
     u.setLang(data)
     u.state('homev')
@@ -69,4 +69,22 @@ def process_home_callback(chat, query, bot, u, btns, data):
     text = cm.messageText()
     cbtext = cm.callbackText()
     btns = cm.callbackData(btns=btns, text=cbtext)
+    query.message.edit(text, syntax='HTML', attach=btns)
+
+
+def process_settings_callback(chat, query, bot, u, btns, data):
+    """Config page for the BOT."""
+    if data == 'main':
+        if query.sender.id != config.ADMIN:
+            u.state('config')
+        else:
+            u.state('config@a')
+    elif data == 'language':
+        u.state('config@l')
+    elif data == 'open':
+        u.state('config@o')
+    cm = callMess(u.setLang(), u.state().decode('utf-8'))
+    text = cm.callbackText()
+    cbtext = cm.callbackText()
+    btns = cm.callbackData(btns, cbtext)
     query.message.edit(text, syntax='HTML', attach=btns)

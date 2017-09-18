@@ -2,21 +2,21 @@
   {"state":"ridentity",  "buttons":[
     {"row":[
       {"column":[
-        {"type":"callback", "cb":"ridentity", "data":"{lang}"}
+        {"type":"callback", "cb":"porcoddiocane", "data":"None"}
       ]},
       {"column":[
-        {"type":"callback", "cb":"home", "data":"{lang}"}
+        {"type":"callback", "cb":"home", "data":"None"}
       ]}
     ]}
   ]},
   {"state":"home", "buttons":[
     {"row":[
       {"column":[
-        {"type":"callback", "cb":"ridentity", "data":"{lang}"}
+        {"type":"callback", "cb":"porcoddiocane", "data":"None"}
       ]},
       {"column":[
-        {"type":"callback", "cb":"settings", "data":"{lang}"},
-        {"type":"callback", "cb":"info", "data":"{lang}"}
+        {"type":"callback", "cb":"settings", "data":"main"},
+        {"type":"callback", "cb":"info", "data":"None"}
       ]}
     ]}
   ]},
@@ -31,7 +31,22 @@
   {"state":"homev", "buttons":[
     {"row":[
       {"column":[
-        {"type":"callback", "cb":"home", "data":"{lang}"}
+        {"type":"callback", "cb":"home", "data":"None"}
+      ]}
+    ]}
+  ]},
+  {"state":"settings", "buttons":[
+    {"row":[
+      {"column":[
+        {"type":"callback", "cb":"settings", "data":"language"}
+      ]}
+    ]}
+  ]},
+  {"state":"settings@a", "buttons":[
+    {"row":[
+      {"column":[
+        {"type":"callback", "cb":"settings", "data":"language"},
+        {"type":"callback", "cb":"settings", "data":"open"}
       ]}
     ]}
   ]}

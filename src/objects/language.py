@@ -41,22 +41,24 @@ class callMess:
         """Get the buttons data."""
         x = 0
         y = 0
-        # print('asd')
+        print('asd')
         for a in self.jsoncallback["status"]:
             if a["state"] == self.state:
-                # print(a)
+                print(a, '\n')
                 for b in a["buttons"]:
-                    # print(b)
+                    print(b, '\n')
                     for c in b["row"]:
-                        # print(c)
+                        print(c, '\n')
                         for d in c["column"]:
-                            # print(d)
                             if d["type"] == 'url':
                                 btns[x].url(str(text[x][y]), d["cb"])
                             else:
-                                cbdata = d["data"].format(lang=self.lang)
-                                btns[x].callback(str(text[x][y]),
-                                                 d["cb"], data=cbdata)
+                                if d["data"] != 'None':
+                                    btns[x].callback(str(text[x][y]),
+                                                     d["cb"], data=d["data"])
+                                else:
+                                    btns[x].callback(str(text[x][y]),
+                                                     d["cb"], data=None)
                             y += 1
                         y = 0
                         x += 1

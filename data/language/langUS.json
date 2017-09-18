@@ -22,21 +22,21 @@
           ]}
         ]}
       ]},
-    {"state":"homef",
-      "text":"Welcome to Fake Name Generator! Pick a language:", "buttons":[
+  {"state":"homef",
+    "text":"Welcome to Fake Name Generator! Pick a language:", "buttons":[
+    {"row":[
+      {"column":[
+        {"text":"🇮🇹 Italiano"},
+        {"text":"🇺🇸 English"}
+        ]}
+      ]}
+    ]},
+  {"state":"homev",
+    "text":"Done!", "buttons":[
       {"row":[
         {"column":[
-          {"text":"🇮🇹 Italiano"},
-          {"text":"🇺🇸 English"}
-          ]}
+          {"text":"🏠 Home"}
         ]}
-      ]},
-    {"state":"homev",
-      "text":"Done!", "buttons":[
-        {"row":[
-          {"column":[
-            {"text":"🏠 Home"}
-            ]}
-          ]}
-        ]}
+      ]}
+    ]}
   ]}

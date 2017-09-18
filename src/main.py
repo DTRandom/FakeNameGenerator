@@ -1,6 +1,5 @@
 import botogram
 import config
-import json
 import time
 from src.objects.user import User
 from src.objects.error import Error
@@ -27,24 +26,25 @@ def start_command(chat, message):
           str(message.sender.id))
 
 
-@bot.callback('ridentity')
-def ridentity_callback(chat, query, data):
+# Scusate ma il cazzo di codice mi stava facendo bestemmiare 🎉
+@bot.callback('porcoddiocane')
+def ridentity_callback(chat, query):
     start_time = time.time()
     u = User(query.sender)
-    if chat.type == 'private' and chat.id == config.ADMIN:
+    if chat.type == 'private':
         btns = botogram.Buttons()
-        callback.process_ridentity_callback(chat, query, bot, u, btns, data)
+        callback.process_ridentity_callback(chat, query, bot, u, btns)
     print('--- ' + str(time.time() - start_time) + ' ---' + " ridentity - " +
           str(query.sender.id))
 
 
 @bot.callback('lang')
-def setlang_callback(chat, query, data):
+def lang_callback(chat, query, data):
     start_time = time.time()
     u = User(query.sender)
-    if chat.type == 'private' and chat.id == config.ADMIN:
+    if chat.type == 'private':
         btns = botogram.Buttons()
-        callback.process_setlang_callback(chat, query, bot, u, btns, data)
+        callback.process_lang_callback(chat, query, bot, u, btns, data)
     print('--- ' + str(time.time() - start_time) + ' ---' + " lang - " +
           str(query.sender.id))
 
