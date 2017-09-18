@@ -12,9 +12,9 @@ def process_ridentity_callback(chat, query, bot, u, btns, data):
 
     Identities are given based on selected language.
     """
-    cm = callMess(u.setLang().decode('utf-8'), u.state().decode('utf-8'))
-    # print(data)
     u.state('ridentity')
+    cm = callMess(u.setLang(), u.state().decode('utf-8'))
+    # print(data)
     cursor, cnx = connectmysql()
     current = int(u.getRedis('current'))
     maxquery = """
@@ -36,7 +36,7 @@ def process_ridentity_callback(chat, query, bot, u, btns, data):
     current += 1
     u.setRedis('current', current)
     cbtext = cm.callbackText()
-    btns = cm.callbackData(btns, cbtext, u.getRedis('lang').decode('utf-8'))
+    btns = cm.callbackData(btns, cbtext)
     text = cm.messageText()
     for row in cursor.fetchall():
         text = text.format(gender=row[0], title=row[1],
@@ -45,8 +45,28 @@ def process_ridentity_callback(chat, query, bot, u, btns, data):
                            state=row[6], statefull=row[7],
                            zip=row[8], country=row[9],
                            countryfull=row[10], birthday=row[11])
-    chat.send(text, syntax='HTML', attach=btns)
+    query.message.edit(text, syntax='HTML', attach=btns)
 
 
 def process_setlang_callback(chat, query, bot, u, btns, data):
-    u.setLang('data')
+    """Set the BOT language when started for the first time."""
+    u.setLang(data)
+    u.state('homev')
+    cm = callMess(u.setLang(), u.state().decode('utf-8'))
+    text = cm.messageText()
+    btnstext = cm.callbackText()
+    btns = cm.callbackData(btns, btnstext)
+    query.message.edit(text, attach=btns)
+
+
+def process_home_callback(chat, query, bot, u, btns, data):
+    """Same as /start command but it's a callback :P."""
+    if not u.setLang():
+        u.state('homef')
+    else:
+        u.state('home')
+    cm = callMess(u.setLang(), u.state().decode('utf-8'))
+    text = cm.messageText()
+    cbtext = cm.callbackText()
+    btns = cm.callbackData(btns=btns, text=cbtext)
+    query.message.edit(text, syntax='HTML', attach=btns)

@@ -1,0 +1,42 @@
+{"status":[
+  {"state":"ridentity",
+    "text":"<b>Gender</b>: {gender}\n<b>Title</b>: {title}\n<b>Name</b>: {name}\n<b>Surname</b>: {surname}\n<b>Street</b>: {street}\n<b>City</b>: {city}\n<b>State</b>: {state}, {statefull}\n<b>Zip Code</b>: {zip}\n<b>Country</b>: {country}, {countryfull}\n<b>Birthday</b>: {birthday}", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🔀 Fake Identity"}
+          ]},
+        {"column":[
+          {"text":"🏠 Home"}
+          ]}
+        ]}
+      ]},
+  {"state":"home",
+    "text":"Click the button below to get a <b>Random Identity</b>", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🔀 Fake Identity"}
+          ]},
+        {"column":[
+          {"text":"⚙️ Settings"},
+          {"text":"ℹ️ Info"}
+          ]}
+        ]}
+      ]},
+    {"state":"homef",
+      "text":"Welcome to Fake Name Generator! Pick a language:", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🇮🇹 Italiano"},
+          {"text":"🇺🇸 English"}
+          ]}
+        ]}
+      ]},
+    {"state":"homev",
+      "text":"Done!", "buttons":[
+        {"row":[
+          {"column":[
+            {"text":"🏠 Home"}
+            ]}
+          ]}
+        ]}
+  ]}

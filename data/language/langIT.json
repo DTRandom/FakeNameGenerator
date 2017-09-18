@@ -4,6 +4,9 @@
       {"row":[
         {"column":[
           {"text":"🔀 Falsa Identità"}
+          ]},
+        {"column":[
+          {"text":"🏠 Home"}
           ]}
         ]}
       ]},
@@ -12,6 +15,18 @@
       {"row":[
         {"column":[
           {"text":"🔀 Falsa Identità"}
+          ]},
+        {"column":[
+          {"text":"⚙️ Impostazioni"},
+          {"text":"ℹ️ Info"}
+          ]}
+        ]}
+      ]},
+  {"state":"homev",
+    "text":"Fatto!", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🏠 Home"}
           ]}
         ]}
       ]}

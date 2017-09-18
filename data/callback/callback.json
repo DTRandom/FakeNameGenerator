@@ -1,0 +1,38 @@
+{"status":[
+  {"state":"ridentity",  "buttons":[
+    {"row":[
+      {"column":[
+        {"type":"callback", "cb":"ridentity", "data":"{lang}"}
+      ]},
+      {"column":[
+        {"type":"callback", "cb":"home", "data":"{lang}"}
+      ]}
+    ]}
+  ]},
+  {"state":"home", "buttons":[
+    {"row":[
+      {"column":[
+        {"type":"callback", "cb":"ridentity", "data":"{lang}"}
+      ]},
+      {"column":[
+        {"type":"callback", "cb":"settings", "data":"{lang}"},
+        {"type":"callback", "cb":"info", "data":"{lang}"}
+      ]}
+    ]}
+  ]},
+  {"state":"homef", "buttons":[
+    {"row":[
+      {"column":[
+        {"type":"callback", "cb":"lang", "data":"IT"},
+        {"type":"callback", "cb":"lang", "data":"US"}
+      ]}
+    ]}
+  ]},
+  {"state":"homev", "buttons":[
+    {"row":[
+      {"column":[
+        {"type":"callback", "cb":"home", "data":"{lang}"}
+      ]}
+    ]}
+  ]}
+]}

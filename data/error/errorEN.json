@@ -1,0 +1,6 @@
+{"errors":[
+  {"error":"norights",
+  "text":"<b>BOT</b>: <a href=\"t.me/sfujudarbot\">[DTRandom] Fake Name Generator</a>\n<b>User ID</b>: {userid}\n<b>Username</b>: <a href=\"tg://user?id={userid}\">{userfname}</a>\n<b>Chat Type</b>: {chattype}\n<b>Tipo di Errore:</b> Non ha accesso al bot\n\n{time}"},
+  {"error":"noprivate",
+  "text":"<b>BOT</b>: <a href=\"t.me/sfujudarbot\">[DTRandom] Fake Name Generator</a>\n<b>User ID</b>: {userid}\n<b>Chat Type</b>: {chattype}\n<b>Chat ID</b>: {chatid}\n<b>Tipo di Errore:</b> Bot avviato in un gruppo\n\n{time}"}
+  ]}

@@ -37,10 +37,24 @@ def ridentity_callback(chat, query, data):
     print('--- ' + str(time.time() - start_time) + ' ---' + " ridentity - " +
           str(query.sender.id))
 
-@bot.callback('setlang')
+
+@bot.callback('lang')
 def setlang_callback(chat, query, data):
     start_time = time.time()
     u = User(query.sender)
     if chat.type == 'private' and chat.id == config.ADMIN:
         btns = botogram.Buttons()
         callback.process_setlang_callback(chat, query, bot, u, btns, data)
+    print('--- ' + str(time.time() - start_time) + ' ---' + " lang - " +
+          str(query.sender.id))
+
+
+@bot.callback('home')
+def home_callback(chat, query, data):
+    start_time = time.time()
+    u = User(query.sender)
+    if chat.type == 'private':
+        btns = botogram.Buttons()
+        callback.process_home_callback(chat, query, bot, u, btns, data)
+    print('--- ' + str(time.time() - start_time) + ' ---' + " home - " +
+          str(query.sender.id))

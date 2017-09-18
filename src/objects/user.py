@@ -121,5 +121,5 @@ class User:
         if not new_lang:
             return r.hget(self.rhash, 'lang')
 
-        r.hset(self.rhash, 'lang')
+        r.hset(self.rhash, 'lang', new_lang)
         return True
