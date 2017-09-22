@@ -3,7 +3,12 @@ from ..objects.language import callMess
 from ..objects.error import Error
 from ..objects.language import callMess
 from ..objects.mysql import disconnectmysql, connectmysql
+import redis
 # from ..objects.user import r
+
+r = redis.StrictRedis(host=config.REDIS_HOST,
+                      password=config.REDIS_PASSWORD,
+                      db=config.REDIS_DB, port=config.REDIS_PORT)
 
 
 def process_ridentity_callback(chat, query, bot, u, btns):
@@ -38,6 +43,7 @@ def process_ridentity_callback(chat, query, bot, u, btns):
     cbtext = cm.callbackText()
     btns = cm.callbackData(btns, cbtext)
     text = cm.messageText()
+    query.notify(cm.notifyData())
     for row in cursor.fetchall():
         text = text.format(gender=row[0], title=row[1],
                            name=row[2], surname=row[3],
@@ -56,6 +62,7 @@ def process_lang_callback(chat, query, bot, u, btns, data):
     text = cm.messageText()
     btnstext = cm.callbackText()
     btns = cm.callbackData(btns, btnstext)
+    query.notify(cm.notifyData())
     query.message.edit(text, attach=btns)
 
 
@@ -69,6 +76,7 @@ def process_home_callback(chat, query, bot, u, btns, data):
     text = cm.messageText()
     cbtext = cm.callbackText()
     btns = cm.callbackData(btns=btns, text=cbtext)
+    query.notify(cm.notifyData())
     query.message.edit(text, syntax='HTML', attach=btns)
 
 
@@ -76,15 +84,39 @@ def process_settings_callback(chat, query, bot, u, btns, data):
     """Config page for the BOT."""
     if data == 'main':
         if query.sender.id != config.ADMIN:
-            u.state('config')
+            u.state('settings')
         else:
-            u.state('config@a')
+            u.state('settings@a')
     elif data == 'language':
-        u.state('config@l')
+        u.state('settings@language')
     elif data == 'open':
-        u.state('config@o')
+        u.state('settings@o')
     cm = callMess(u.setLang(), u.state().decode('utf-8'))
-    text = cm.callbackText()
+    text = cm.messageText()
     cbtext = cm.callbackText()
     btns = cm.callbackData(btns, cbtext)
+    query.notify(cm.notifyData())
     query.message.edit(text, syntax='HTML', attach=btns)
+
+
+def process_open_callback(chat, query, bot, u, btns, data):
+    """Set the BOT language when started for the first time."""
+    r.set('open', data)
+    u.state('homev')
+    cm = callMess(u.setLang(), u.state().decode('utf-8'))
+    text = cm.messageText()
+    btnstext = cm.callbackText()
+    btns = cm.callbackData(btns, btnstext)
+    query.notify(cm.notifyData())
+    query.message.edit(text, attach=btns)
+
+
+def process_info_callback(chat, query, bot, u, btns, data):
+    """Get various infos."""
+    u.state('info')
+    cm = callMess(u.setLang(), u.state().decode('utf-8'))
+    text = cm.messageText()
+    btnstext = cm.callbackText()
+    query.notify(cm.notifyData())
+    btns = cm.callbackData(btns, btnstext)
+    query.message.edit(text, attach=btns)

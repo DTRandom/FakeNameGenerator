@@ -34,21 +34,21 @@ class callMess:
                         for d in c["column"]:
                             row.append(d["text"])
                         buttons.append(row)
-        print(buttons)
+        # print(buttons)
         return buttons
 
     def callbackData(self, btns, text):
         """Get the buttons data."""
         x = 0
         y = 0
-        print('asd')
+        # print('asd')
         for a in self.jsoncallback["status"]:
             if a["state"] == self.state:
-                print(a, '\n')
+                # print(a, '\n')
                 for b in a["buttons"]:
-                    print(b, '\n')
+                    # print(b, '\n')
                     for c in b["row"]:
-                        print(c, '\n')
+                        # print(c, '\n')
                         for d in c["column"]:
                             if d["type"] == 'url':
                                 btns[x].url(str(text[x][y]), d["cb"])
@@ -63,3 +63,13 @@ class callMess:
                         y = 0
                         x += 1
                 return btns
+        btns[0].url('⚠️ Errore ⚠️', 'porcod.io')
+        return btns
+
+    def notifyData(self):
+        for a in self.jsonlang["status"]:
+            if a["state"] == self.state:
+                if a["notify"]:
+                    return a["notify"]
+                else:
+                    return '⚠️ Error ⚠️'

@@ -9,7 +9,7 @@
           {"text":"🏠 Home"}
           ]}
         ]}
-      ]},
+      ], "notify":"👤 Random Identity"},
   {"state":"home",
     "text":"Click the button below to get a <b>Random Identity</b>", "buttons":[
       {"row":[
@@ -21,13 +21,13 @@
           {"text":"ℹ️ Info"}
           ]}
         ]}
-      ]},
+      ], "notify":"🏠 Home"},
   {"state":"homef",
-    "text":"Welcome to Fake Name Generator! Pick a language:", "buttons":[
-    {"row":[
-      {"column":[
-        {"text":"🇮🇹 Italiano"},
-        {"text":"🇺🇸 English"}
+    "text":"Welcome to Fake Name Generator! Pick a language:\n<i>(Notice that the selected language is the same for the menus and for the identities)</i>", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🇮🇹 Italiano"},
+          {"text":"🇺🇸 English"}
         ]}
       ]}
     ]},
@@ -38,5 +38,64 @@
           {"text":"🏠 Home"}
         ]}
       ]}
-    ]}
+    ], "notify":"👍"},
+  {"state":"settings",
+    "text":"Main settings page", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🇺🇸 Language"}
+        ]}
+      ]}
+    ], "notify":"⚙️ Settings Page"},
+  {"state":"settings@a",
+    "text":"Main admin settings page", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🇺🇸 Language"},
+          {"text":"🚹 Accessibility"}
+        ]},
+        {"column":[
+          {"text":"🏠 Home"}
+        ]}
+      ]}
+    ], "notify":"👮🏻 Admin Settings Page"},
+  {"state":"settings@language",
+    "text":"Select the Language for the menus and the identities:", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🇮🇹 Italiano"},
+          {"text":"🇺🇸 English"}
+        ]},
+        {"column":[
+          {"text":"⬅️ Back"}
+        ]}
+      ]}
+    ], "notify":"🇺🇸 Language Settings"},
+  {"state":"settings@o",
+    "text":"Set the bot Accessibility:", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"👥 Everyone"},
+          {"text":"👤 Just for Me"}
+        ]},
+        {"column":[
+          {"text":"⬅️ Back"}
+        ]}
+      ]}
+    ], "notify":"🚹 Accessibility Settings"},
+  {"state":"info",
+    "text":"ℹ️ <b>Info</b>\nHere are some useful links, please donate me if you like this bot!", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"💰 Donations"},
+          {"text":"🔘 GitHub"}
+        ]},
+        {"column":[
+          {"text":"👤 Profile"}
+        ]},
+        {"column":[
+          {"text":"⬅️ Back"}
+        ]}
+      ]}
+    ], "notify":"ℹ️ Infos Page"}
   ]}

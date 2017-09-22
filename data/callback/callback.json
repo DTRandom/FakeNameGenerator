@@ -47,6 +47,45 @@
       {"column":[
         {"type":"callback", "cb":"settings", "data":"language"},
         {"type":"callback", "cb":"settings", "data":"open"}
+      ]},
+      {"column":[
+        {"type":"callback", "cb":"home", "data":"None"}
+        ]}
+    ]}
+  ]},
+  {"state":"settings@language", "buttons":[
+    {"row":[
+      {"column":[
+        {"type":"callback", "cb":"lang", "data":"IT"},
+        {"type":"callback", "cb":"lang", "data":"US"}
+      ]},
+      {"column":[
+        {"type":"callback", "cb":"settings", "data":"main"}
+      ]}
+    ]}
+  ]},
+  {"state":"settings@o", "buttons":[
+    {"row":[
+      {"column":[
+        {"type":"callback", "cb":"open", "data":"2"},
+        {"type":"callback", "cb":"open", "data":"1"}
+      ]},
+      {"column":[
+        {"type":"callback", "cb":"settings", "data":"main"}
+      ]}
+    ]}
+  ]},
+  {"state":"info", "buttons":[
+    {"row":[
+      {"column":[
+        {"type":"url", "cb":"https://paypal.me/fzimbolo", "data":"None"},
+        {"type":"url", "cb":"https://github.com/DTRandom/FakeNameGenerator", "data":"None"}
+      ]},
+      {"column":[
+        {"type":"url", "cb":"https://t.me/DTRandom", "data":"main"}
+      ]},
+      {"column":[
+        {"type":"callback", "cb":"home", "data":"None"}
       ]}
     ]}
   ]}

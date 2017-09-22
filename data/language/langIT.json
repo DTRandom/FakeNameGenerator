@@ -9,7 +9,7 @@
           {"text":"🏠 Home"}
           ]}
         ]}
-      ]},
+      ], "notify":"👤 Identità Casuale"},
   {"state":"home",
     "text":"Clicca il bottone qui sotto per ottenere una <b>Falsa Identità</b>.", "buttons":[
       {"row":[
@@ -21,7 +21,7 @@
           {"text":"ℹ️ Info"}
           ]}
         ]}
-      ]},
+      ], "notify":"🏠 Home"},
   {"state":"homev",
     "text":"Fatto!", "buttons":[
       {"row":[
@@ -29,5 +29,64 @@
           {"text":"🏠 Home"}
         ]}
       ]}
+    ], "notify":"👍"},
+{"state":"settings",
+  "text":"⚙️ <b>Impostazioni</b>\nScegli un'impostazione:", "buttons":[
+    {"row":[
+      {"column":[
+        {"text":"🇺🇸 Language"}
+      ]}
     ]}
+  ], "notify":"⚙️ Impostazioni"},
+{"state":"settings@a",
+  "text":"⚙️ <b>Impostazioni Admin</b>\nBenvenuto! Scegli una delle impostazioni:", "buttons":[
+    {"row":[
+      {"column":[
+        {"text":"🇮🇹 Lingua"},
+        {"text":"🚹 Accessibilità"}
+      ]},
+      {"column":[
+        {"text":"🏠 Home"}
+      ]}
+    ]}
+  ], "notify":"👮🏻 Impostazioni Admin"},
+  {"state":"settings@language",
+    "text":"Seleziona la lingua per i menù e le identità:", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"🇮🇹 Italiano"},
+          {"text":"🇺🇸 English"}
+        ]},
+        {"column":[
+          {"text":"⬅️ Indietro"}
+        ]}
+      ]}
+    ], "notify":"🇮🇹 Impostazioni Lingua"},
+  {"state":"settings@o",
+    "text":"Imposta l'accessibilità del bot", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"👥 Chiunque"},
+          {"text":"👤 Solo per Me"}
+        ]},
+        {"column":[
+          {"text":"⬅️ Indietro"}
+        ]}
+      ]}
+    ], "notify":"🚹 Impostazioni Accessibilità"},
+  {"state":"info",
+    "text":"ℹ️ <b>Info</b>\nQui ci sono alcuni link utili, per favore fai una donazione se ti piace il bot!", "buttons":[
+      {"row":[
+        {"column":[
+          {"text":"💰 Donazioni"},
+          {"text":"🔘 GitHub"}
+        ]},
+        {"column":[
+          {"text":"👤 Profilo"}
+        ]},
+        {"column":[
+          {"text":"⬅️ Indietro"}
+        ]}
+      ]}
+    ], "notify":"ℹ️ Informazioni"}
   ]}
